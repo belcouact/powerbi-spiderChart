@@ -1,0 +1,5 @@
+node_modules/
+.vscode/
+generate-icon.js
+icon-generator.html
+*.csv

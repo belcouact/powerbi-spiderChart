@@ -1,0 +1,43 @@
+.spider-chart {
+    overflow: hidden;
+
+    .spider-grid {
+        path {
+            fill: none;
+        }
+    }
+
+    .spider-axes {
+        line {
+            stroke-linecap: round;
+        }
+        text {
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+
+    .spider-data {
+        .spider-series {
+            path {
+                transition: fill-opacity 0.2s ease, stroke-width 0.2s ease;
+            }
+            circle {
+                transition: r 0.15s ease;
+                &:hover {
+                    r: 7;
+                    filter: brightness(1.1);
+                }
+            }
+        }
+    }
+
+    .spider-legend {
+        text {
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+}

@@ -1,0 +1,209 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Axis Category",
+            "name": "category",
+            "kind": "Grouping",
+            "description": "Labels for each axis of the spider chart (e.g. Speed, Strength, Agility)"
+        },
+        {
+            "displayName": "Legend Series",
+            "name": "series",
+            "kind": "Grouping",
+            "description": "Series to create multiple overlapping polygons (e.g. Player A, Player B)"
+        },
+        {
+            "displayName": "Axis Value",
+            "name": "measure",
+            "kind": "Measure",
+            "description": "Numeric values for each axis"
+        }
+    ],
+    "objects": {
+        "spiderShape": {
+            "properties": {
+                "shapeType": {
+                    "type": {
+                        "enumeration": [
+                            { "value": "polygon", "displayName": "Polygon" },
+                            { "value": "circle", "displayName": "Circle" }
+                        ]
+                    }
+                },
+                "startAngle": {
+                    "type": { "numeric": true }
+                }
+            }
+        },
+        "gridLines": {
+            "properties": {
+                "show": {
+                    "type": { "bool": true }
+                },
+                "count": {
+                    "type": { "numeric": true }
+                },
+                "color": {
+                    "type": {
+                        "fill": { "solid": { "color": true } }
+                    }
+                },
+                "strokeWidth": {
+                    "type": { "numeric": true }
+                }
+            }
+        },
+        "axisLabels": {
+            "properties": {
+                "show": {
+                    "type": { "bool": true }
+                },
+                "fontSize": {
+                    "type": {
+                        "formatting": { "fontSize": true }
+                    }
+                },
+                "color": {
+                    "type": {
+                        "fill": { "solid": { "color": true } }
+                    }
+                }
+            }
+        },
+        "axisScale": {
+            "properties": {
+                "show": {
+                    "type": { "bool": true }
+                },
+                "fontSize": {
+                    "type": {
+                        "formatting": { "fontSize": true }
+                    }
+                },
+                "color": {
+                    "type": {
+                        "fill": { "solid": { "color": true } }
+                    }
+                }
+            }
+        },
+        "valueLabels": {
+            "properties": {
+                "show": {
+                    "type": { "bool": true }
+                },
+                "fontSize": {
+                    "type": {
+                        "formatting": { "fontSize": true }
+                    }
+                },
+                "color": {
+                    "type": {
+                        "fill": { "solid": { "color": true } }
+                    }
+                }
+            }
+        },
+        "dataPoint": {
+            "properties": {
+                "fillOpacity": {
+                    "type": { "numeric": true }
+                },
+                "strokeWidth": {
+                    "type": { "numeric": true }
+                },
+                "dotSize": {
+                    "type": { "numeric": true }
+                },
+                "showDots": {
+                    "type": { "bool": true }
+                }
+            }
+        },
+        "seriesColors": {
+            "properties": {
+                "color1": {
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "color2": {
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "color3": {
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "color4": {
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "color5": {
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "color6": {
+                    "type": { "fill": { "solid": { "color": true } } }
+                }
+            }
+        },
+        "legend": {
+            "properties": {
+                "show": {
+                    "type": { "bool": true }
+                },
+                "fontSize": {
+                    "type": {
+                        "formatting": { "fontSize": true }
+                    }
+                },
+                "position": {
+                    "type": {
+                        "enumeration": [
+                            { "value": "top", "displayName": "Top" },
+                            { "value": "bottom", "displayName": "Bottom" },
+                            { "value": "left", "displayName": "Left" },
+                            { "value": "right", "displayName": "Right" }
+                        ]
+                    }
+                }
+            }
+        },
+        "autoScale": {
+            "properties": {
+                "enabled": {
+                    "type": { "bool": true }
+                },
+                "minOverride": {
+                    "type": { "numeric": true }
+                },
+                "maxOverride": {
+                    "type": { "numeric": true }
+                }
+            }
+        }
+    },
+    "dataViewMappings": [
+        {
+            "categorical": {
+                "categories": {
+                    "for": { "in": "category" },
+                    "dataReductionAlgorithm": { "top": { "count": 300 } }
+                },
+                "values": {
+                    "group": {
+                        "by": "series",
+                        "select": [
+                            { "bind": { "to": "measure" } }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "privileges": [],
+    "supportsHighlight": true,
+    "tooltips": {
+        "supportedTypes": {
+            "default": true,
+            "canvas": true
+        },
+        "roles": ["measure"],
+        "supportEnhancedTooltips": true
+    }
+}

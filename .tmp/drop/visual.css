@@ -1,0 +1,30 @@
+.spider-chart {
+  overflow: hidden;
+}
+.spider-chart .spider-grid path {
+  fill: none;
+}
+.spider-chart .spider-axes line {
+  stroke-linecap: round;
+}
+.spider-chart .spider-axes text {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  pointer-events: none;
+  user-select: none;
+}
+.spider-chart .spider-data .spider-series path {
+  transition: fill-opacity 0.2s ease, stroke-width 0.2s ease;
+}
+.spider-chart .spider-data .spider-series circle {
+  transition: r 0.15s ease;
+}
+.spider-chart .spider-data .spider-series circle:hover {
+  r: 7;
+  filter: brightness(1.1);
+}
+.spider-chart .spider-legend text {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  pointer-events: none;
+  user-select: none;
+}
+
